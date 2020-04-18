@@ -6,8 +6,8 @@ const Card = ({ image }) => {
 
   return (
     <div css={styles} className="card">
-      <a href={image.largeImageURL} target="_blank">
-        <img src={image.webformatURL} className="cardImage" />
+      <a href={image.largeImageURL} target="_blank" rel="noopener noreferrer">
+        <img src={image.webformatURL} alt='photograph' className="cardImage" />
         <div className="cardInfo">
           <p className="user">Photo by {image.user}</p>
           <p>
@@ -31,9 +31,9 @@ const Card = ({ image }) => {
             {image.comments}
           </p>
           <div className="tags">
-            {tags.map((tag, index) => (
-              <span key={index}>#{tag}</span>
-            ))}
+            {tags.map((tag, index) =>
+              tag.length >= 11 ? "" : <span key={index}>#{tag}</span>
+            )}
           </div>
         </div>
       </a>
@@ -78,9 +78,8 @@ const styles = css`
     .tags {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       span {
-        margin: 8px 0 0 0;
+        margin: 8px 10px 0 0;
         background: #fc5185;
         color: #f5f5f5;
         border-radius: 50px;

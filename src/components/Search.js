@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Search = ({ searchText }) => {
   const [inputVal, setInputVal] = useState("");
